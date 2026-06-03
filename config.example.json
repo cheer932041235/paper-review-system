@@ -1,0 +1,85 @@
+{
+  "_comment": "Copy this file to config.json and fill in your real API keys. config.json is git-ignored so your keys never leave your machine. You can use one provider or several; the fallback_chain lets a reviewer downgrade to a backup API/model when the primary is rate-limited or unavailable.",
+  "api_sources": {
+    "vectorengine": {
+      "url": "https://api.vectorengine.ai/v1/chat/completions",
+      "key": "sk-YOUR_VECTORENGINE_KEY_HERE",
+      "token_param": "max_tokens"
+    },
+    "sophnet": {
+      "url": "https://www.sophnet.com/api/open-apis/v1/chat/completions",
+      "key": "YOUR_SOPHNET_KEY_HERE",
+      "token_param": "max_completion_tokens"
+    },
+    "deepseek": {
+      "url": "https://api.deepseek.com/v1/chat/completions",
+      "key": "sk-YOUR_DEEPSEEK_KEY_HERE",
+      "token_param": "max_tokens"
+    }
+  },
+  "reviewers": {
+    "EIC": {
+      "role": "Editor-in-Chief",
+      "focus": "Overall quality, originality, significance, venue fit",
+      "fallback_chain": [
+        {"model": "claude-opus-4-6-thinking", "api": "vectorengine"},
+        {"model": "claude-opus-4-6", "api": "vectorengine"},
+        {"model": "claude-opus-4-6", "api": "sophnet"},
+        {"model": "claude-sonnet-4-6", "api": "vectorengine"},
+        {"model": "claude-sonnet-4-6", "api": "sophnet"}
+      ]
+    },
+    "Methodology": {
+      "role": "Methodology Reviewer",
+      "focus": "Experimental design, statistical validity, reproducibility, baselines",
+      "fallback_chain": [
+        {"model": "o4-mini-all", "api": "vectorengine"},
+        {"model": "gpt-5.5", "api": "vectorengine"},
+        {"model": "gpt-5.5", "api": "sophnet"},
+        {"model": "gpt-4o", "api": "vectorengine"}
+      ]
+    },
+    "Domain": {
+      "role": "Domain Expert",
+      "focus": "Literature coverage, theoretical grounding, incremental contribution",
+      "fallback_chain": [
+        {"model": "gemini-3.1-pro-preview-thinking", "api": "vectorengine"},
+        {"model": "gemini-3.1-pro-preview", "api": "vectorengine"},
+        {"model": "gemini-3.1-pro-preview", "api": "sophnet"},
+        {"model": "gpt-5.5", "api": "sophnet"}
+      ]
+    },
+    "Writing": {
+      "role": "Writing Quality Reviewer",
+      "focus": "Clarity, structure, grammar, notation, figures, readability",
+      "fallback_chain": [
+        {"model": "grok-4.1", "api": "vectorengine"},
+        {"model": "claude-sonnet-4-6", "api": "vectorengine"},
+        {"model": "claude-sonnet-4-6", "api": "sophnet"},
+        {"model": "gpt-5.5", "api": "sophnet"}
+      ]
+    },
+    "Devil": {
+      "role": "Devil's Advocate",
+      "focus": "Counter-arguments, logical fallacies, cherry-picking, overclaiming",
+      "fallback_chain": [
+        {"model": "deepseek-v4-pro", "api": "deepseek"},
+        {"model": "deepseek-v4-pro", "api": "vectorengine"},
+        {"model": "DeepSeek-V4-Pro", "api": "sophnet"},
+        {"model": "gpt-5.5", "api": "vectorengine"},
+        {"model": "claude-sonnet-4-6", "api": "sophnet"}
+      ]
+    }
+  },
+  "meta_reviewer": {
+    "fallback_chain": [
+      {"model": "o4-mini-all", "api": "vectorengine"},
+      {"model": "gpt-5.5", "api": "vectorengine"},
+      {"model": "gpt-5.5", "api": "sophnet"},
+      {"model": "claude-sonnet-4-6", "api": "vectorengine"}
+    ]
+  },
+  "venue": "mid",
+  "min_reviewers": 3,
+  "note": "Triple-API fallback: vectorengine (primary) + sophnet (backup) + deepseek (official). Each reviewer tries its primary model first, then the same model on a backup API, then a slightly downgraded model. Principle: cross-vendor diversity = genuinely independent reviewers."
+}

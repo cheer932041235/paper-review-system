@@ -1,0 +1,25 @@
+# NEVER commit real API keys — config.json holds live keys, stays local only
+config.json
+*.env
+.env
+
+# review outputs
+*_review.md
+*_review.json
+*_interim.json
+
+# doc->png render artifacts
+*.png
+pages/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
