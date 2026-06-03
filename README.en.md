@@ -113,3 +113,9 @@ draft done → lightweight self-check, 2–3 rounds → (EI papers stop here)
 ## License
 
 MIT © 2026 疏锦行
+
+---
+
+## Mentoring · Collaboration
+
+For **research mentoring or collaboration**, contact **疏锦行 (Shu Jinxing)** on WeChat: **shujinxing777**

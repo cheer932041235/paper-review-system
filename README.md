@@ -113,3 +113,9 @@ python paper_reviewer.py main.tex --config config.json --reviewers EIC Writing D
 ## License
 
 MIT © 2026 疏锦行
+
+---
+
+## 科研辅导 · 合作
+
+需要**科研辅导、科研合作**，欢迎联系 **疏锦行**　微信：**shujinxing777**
