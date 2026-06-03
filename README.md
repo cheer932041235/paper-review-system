@@ -44,6 +44,8 @@ python doc_to_pages.py path/to/paper.pdf --dpi 200
 
 **核心信念：交叉模型共识 ≫ 同模型重复。** 不同厂商 = 不同训练数据 = 真正独立的视角。当来自完全不同来源的模型都指出同一个问题，它大概率是真的；只有一个模型提的，可能是它的幻觉。
 
+> 💡 **怎么一次性拿到这么多不同厂商的模型？** 审稿委员会要的恰恰是"多个不同厂商"，用**聚合 API** 最省事——一个 key 就能调 Claude / GPT / Gemini / Grok / DeepSeek 等所有主流模型，天然适配本工作流。本项目默认的 `vectorengine` 就是这样一个聚合站，模型覆盖广、更新快：注册入口 → <https://api.vectorengine.ai/register?aff=jyFY>
+
 评审委员会（默认配置，可在 `config.json` 改）：
 
 | 角色 | 默认模型家族 | 职责 |

@@ -44,6 +44,8 @@ Guiding principle: **diagnose globally, treat precisely** — first screenshot a
 
 **Core belief: cross-model consensus ≫ repeating one model.** Different vendors = different training data = genuinely independent perspectives. When models from completely different sources flag the same issue, it is probably real; an issue raised by only one model may be its hallucination.
 
+> 💡 **How do you get so many different-vendor models at once?** The committee specifically needs *multiple different vendors*, so an **aggregator API** is the easiest path — one key calls Claude / GPT / Gemini / Grok / DeepSeek and more, which fits this workflow perfectly. This project defaults to `vectorengine`, one such aggregator with broad, up-to-date model coverage: sign up → <https://api.vectorengine.ai/register?aff=jyFY>
+
 Review committee (default config, editable in `config.json`):
 
 | Role | Default model family | Responsibility |

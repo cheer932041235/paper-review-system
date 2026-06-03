@@ -1,5 +1,5 @@
 {
-  "_comment": "Copy this file to config.json and fill in your real API keys. config.json is git-ignored so your keys never leave your machine. You can use one provider or several; the fallback_chain lets a reviewer downgrade to a backup API/model when the primary is rate-limited or unavailable.",
+  "_comment": "Copy this file to config.json and fill in your real API keys. config.json is git-ignored so your keys never leave your machine. You can use one provider or several; the fallback_chain lets a reviewer downgrade to a backup API/model when the primary is rate-limited or unavailable. Tip: this workflow needs many DIFFERENT-vendor models, so an aggregator API (one key for Claude/GPT/Gemini/Grok/DeepSeek...) is the easiest setup. The default 'vectorengine' is such an aggregator: https://api.vectorengine.ai/register?aff=jyFY",
   "api_sources": {
     "vectorengine": {
       "url": "https://api.vectorengine.ai/v1/chat/completions",
